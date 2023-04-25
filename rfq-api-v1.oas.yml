@@ -1,12 +1,21 @@
 openapi: '3.0.2'
 info:
   title: Quotation API
+  description: Quotation API for Quotes
   version: '1.0'
+  contact:
+    email: dok.x@sdc.dk
 servers:
   - url: https://api.server.test/v1
+tags:
+  - name: RFQ
 paths:
   /rfqs:
     post:
+      tags:
+        - RFQ
+      description: Create a quote
+      operationid: createQuote
       requestBody:
         content:
           application/json:

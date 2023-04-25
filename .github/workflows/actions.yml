@@ -8,5 +8,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - run: npm instal -g @stoplight/spectral-cli
+      - run: npm install -g @stoplight/spectral-cli
       - run: spectral lint rfq-api-v1.oas.yml

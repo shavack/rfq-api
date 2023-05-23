@@ -30,11 +30,12 @@ components:
             type: object
             properties:
                 id:
-                    type: integer
+                    type: string
                     format: uuid
                 product:
                     type: string
                     maxLength: 20
+                    pattern: '(\w+\W*)*'
                 quantity:
                     type: integer
                     format: int32
@@ -45,5 +46,10 @@ components:
                     minimum: 0
                 shipment:
                     type: string
+                    enum:
+                      - FOB
+                      - DAT
                 mode:
                     type: string
+                    pattern: "[A-Z]{3}"
+                    maxLength: 3

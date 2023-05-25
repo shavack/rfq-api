@@ -1,6 +1,6 @@
 openapi: "3.0.2"
 info:
-    title: Quotation API
+    title: APE API 
     description: Quotation API for Quotes
     version: "1.0"
     contact:
@@ -24,6 +24,33 @@ paths:
             responses:
                 "200":
                     description: OK
+                "401":
+                    description: Unauthorized
+                    content:
+                        application/json:
+                            schema:
+                                type: string
+                                maxLength: 30
+                                pattern: '(\w+\W*)'
+                                example: "Unauthorized"
+                "404":
+                    description: Not found
+                    content:
+                        application/json:
+                            schema:
+                                type: string
+                                maxLength: 30
+                                pattern: '(\w+\W*)'
+                                example: "Resource not found."
+                "422":
+                    description: Redirect
+                    content:
+                        application/json:
+                            schema:
+                                type: string
+                                maxLength: 30
+                                pattern: '(\w+\W*)'
+                                example: "This is a redirect to XXX"
 components:
     schemas:
         Quotation:
@@ -32,7 +59,6 @@ components:
                 id:
                     type: string
                     format: uuid
-                    maxLength: 40
                 product:
                     type: string
                     maxLength: 20
